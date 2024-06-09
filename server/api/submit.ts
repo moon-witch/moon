@@ -1,3 +1,6 @@
+// @ts-ignore
+import { verifyTurnstileToken} from "@nuxtjs/turnstile/dist/runtime/nitro/utils/verify";
+
 export default defineEventHandler(async (event) => {
     const { token } = await readBody(event)
 
