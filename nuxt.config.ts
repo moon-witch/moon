@@ -48,7 +48,7 @@ export default defineNuxtConfig({
                 pass: process.env.PASS
             }
         }
-    }], "@nuxtjs/turnstile", "@nuxthub/core"],
+    }], "@nuxtjs/turnstile"],
     turnstile: {
         siteKey: '0x4AAAAAAAbgZ0R7KdrBQE4C',
         addValidateEndpoint: true
