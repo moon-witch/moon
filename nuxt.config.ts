@@ -51,6 +51,7 @@ export default defineNuxtConfig({
     }], "@nuxtjs/turnstile", "@nuxthub/core"],
     turnstile: {
         siteKey: '0x4AAAAAAAbgZ0R7KdrBQE4C',
+        secretKey: '',
         addValidateEndpoint: true
     },
     routeRules: {
