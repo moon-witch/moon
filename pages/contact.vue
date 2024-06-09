@@ -18,7 +18,7 @@ const token = ref()
 const errorMsg = ref<string>('')
 const successMsg = ref<string>('')
 const sendMail = async () => {
-  const response = await $fetch('/api/submit', {
+  const response: any = await $fetch('/_turnstile/validate', {
     method: 'POST',
     body: {
       token: token.value,
