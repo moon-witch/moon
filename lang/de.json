@@ -1,0 +1,35 @@
+{
+  "base": {
+    "serviceType": "Web Entwicklung & Design",
+    "langSwitch": "Sprache ändern",
+    "blogCTA": "Zu meinem Blog",
+    "artCTA": "Ich mache auch Kunst!"
+  },
+  "landing": {
+    "name": "Ich bin Joshua Langenbach.",
+    "tag": "Ich kreiere alles für's Web.",
+    "product": "Design - Entwicklung - Hosting",
+    "info": "Meine Passion liegt bei einzigartigen, kunstvollen Websites. I lege Wert auf übersichtliche, intuitive Designs bei denen man sich direkt zuhause fühlt.",
+    "stack": "Unter Anderem nutze ich",
+    "contact": "Schreib' mir"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "info": "Sende mir eine Nachricht über dein gewünschtes Projekt. Bitte gib so viele Details wie möglich an.",
+    "greet": "Ich freue mich darauf, von dir zu hören!",
+    "name": "Name",
+    "email": "E-Mail",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "missingFields": "Bitte fülle alle Felder aus.",
+    "error": "Beim Senden der Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "success": "Deine Nachricht wurde erfolgreich gesendet. Ich werde mich in Kürze mit dir in Verbindung setzen.",
+    "invalidToken": "Validierung fehlgeschlagen. Bitte aktualisiere die Seite.",
+    "send": "Nachricht senden",
+    "privacy": "Deine Privatsphäre ist mir wichtig. Ich verwende deine Daten nur, um auf die Anfrage zu antworten. Ich gebe deine Daten nicht an Dritte weiter."
+  },
+  "footer": {
+    "imprint": "impressum",
+    "disclaimer": "haftungsausschluss"
+  }
+}

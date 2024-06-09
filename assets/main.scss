@@ -1,0 +1,17 @@
+@import "./variables";
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: $secondary;
+  overflow: hidden;
+}
+
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}

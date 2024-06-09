@@ -1,0 +1,22 @@
+//dark color (background)
+$primary: hsl(15, 20%, 4%);
+// light color (good contrast to background)
+$secondary: hsla(35, 48%, 90%, 1);
+// good contrast to both
+$alt: hsla(9, 100%, 82%, 1);
+// active color (similar to alt)
+$active: hsla(11, 92%, 75%, 1);
+// general border radius
+$radius: 9px;
+// general font size
+$font-size: 1.15rem;
+
+// color palette 2024
+$linen: hsla(35, 48%, 90%, 1);
+$peach: hsla(22, 100%, 80%, 1);
+$tan: hsla(30, 47%, 74%, 1);
+$desert-sand: hsla(24, 62%, 83%, 1);
+$coral-pink: hsla(11, 92%, 75%, 1);
+$light-red: hsla(0, 92%, 71%, 1);
+$light-coral: hsla(357, 58%, 69%, 1);
+$melon: hsla(9, 100%, 82%, 1);

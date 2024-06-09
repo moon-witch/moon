@@ -1,0 +1,35 @@
+{
+  "base": {
+    "serviceType": "Web Development & Design",
+    "langSwitch": "Change Language",
+    "blogCTA": "Check out my blog",
+    "artCTA": "I'm also an artist!"
+  },
+  "landing": {
+    "name": "I am Joshua Langenbach.",
+    "tag": "I create things for the Web.",
+    "product": "Design - Development - Hosting",
+    "info": "My passion lies in custom, artful websites. I specialize in clean, unique designs where you feel intuitively at home.",
+    "stack": "My stack includes",
+    "contact": "Contact me"
+  },
+  "contact": {
+    "title": "Contact",
+    "info": "Send me a message about your desired project. Please include as much detail as possible.",
+    "greet": "I'm looking forward to hear from you!",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "missingFields": "Please fill out all fields.",
+    "error": "An error occurred while sending your message. Please try again.",
+    "success": "Your message has been sent successfully. I will get in touch with you shortly.",
+    "invalidToken": "Failed to pass validation. Please refresh the page.",
+    "send": "Send message",
+    "privacy": "Your privacy is important to me. I will only use your information to respond to your inquiry. I do not share your data with third parties."
+  },
+  "footer": {
+    "imprint": "imprint",
+    "disclaimer": "disclaimer"
+  }
+}
