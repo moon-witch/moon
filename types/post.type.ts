@@ -1,4 +1,4 @@
-interface Translation {
+type Translation = {
     id: number;
     Blogposts_id: number;
     languages_code: string;

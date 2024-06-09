@@ -7,7 +7,6 @@ import { getImageUrl } from "~/helpers/imageurl";
 
 const blogState = useBlog()
 const route = useRoute()
-const { locale } = useI18n()
 const runtime = useRuntimeConfig()
 
 const post = ref()

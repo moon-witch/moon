@@ -18,32 +18,36 @@ const token = ref()
 const errorMsg = ref<string>('')
 const successMsg = ref<string>('')
 const sendMail = async () => {
-  /*const response: any = await $fetch('/_turnstile/validate', {
+  const response: any = await $fetch('/_turnstile/validate', {
     method: 'POST',
     body: {
       token: token.value,
     },
-  })*/
+  })
 
-  if (from.value && subject.value && text.value) {
-    try {
-      sending.value = true
-      await mail.send({
-        from: 'client',
-        subject: 'Inquiry',
-        text: mailMessage.value,
-      });
+  if (response.success) {
+    if (from.value && subject.value && text.value) {
+      try {
+        sending.value = true
+        await mail.send({
+          from: 'client',
+          subject: 'Inquiry',
+          text: mailMessage.value,
+        });
 
-      successMsg.value = t('contact.success');
-    } catch (error) {
-      console.error('Error sending email:', error);
-      errorMsg.value = t('contact.error')
-    } finally {
-      sending.value = false
-      turnstile.value.reset()
+        successMsg.value = t('contact.success');
+      } catch (error) {
+        console.error('Error sending email:', error);
+        errorMsg.value = t('contact.error')
+      } finally {
+        sending.value = false
+        turnstile.value.reset()
+      }
+    } else {
+      errorMsg.value = t('contact.missingFields')
     }
   } else {
-    errorMsg.value = t('contact.missingFields')
+    errorMsg.value = t('contact.invalidToken')
   }
 };
 </script>
@@ -83,7 +87,7 @@ const sendMail = async () => {
         <button
             class="submit-button"
             @click="sendMail"
-            :disabled="!name || !subject || !from || !text"
+            :disabled="!name || !subject || !from || !text || !token"
         >
           <span class="loader" v-if="sending">
             <ParticleLoader />
@@ -96,7 +100,7 @@ const sendMail = async () => {
         <p>{{ $t('contact.privacy') }}</p>
       </div>
 
-<!--      <NuxtTurnstile ref="turnstile" v-model="token" :options="{ action: 'vue' }"/>-->
+      <NuxtTurnstile ref="turnstile" v-model="token" :options="{ action: 'vue' }"/>
     </ClientOnly>
   </div>
 </template>
