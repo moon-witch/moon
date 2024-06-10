@@ -34,7 +34,7 @@ const sendMail = async () => {
           subject: 'Inquiry',
           text: mailMessage.value,
         });
-
+        errorMsg.value = ''
         successMsg.value = t('contact.success');
       } catch (error) {
         console.error('Error sending email:', error);

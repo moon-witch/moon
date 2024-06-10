@@ -120,32 +120,30 @@ onMounted(() => {
 
   .tools {
     margin-top: .5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 85dvw;
+    padding: 0 1rem;
 
     @media (min-width: 1024px) {
       margin-top: 2rem;
+      justify-content: end;
     }
-  }
 
-  .searchbar {
-    position: absolute;
-    top: 1rem;
-    right: 21.5%;
-    transform: translateX(-50%);
-    border: none;
-    border-radius: $radius;
-    padding: .4rem;
-    background: $secondary;
+    .searchbar {
+      border: none;
+      border-radius: $radius;
+      padding: .4rem;
+      background: $secondary;
 
-    @media (min-width: 1024px) {
-      right: 3%;
-      top: 2.5rem;
+      @media (min-width: 1024px) {
+        margin-right: 3rem;
+      }
     }
-  }
 
-  .filter {
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-    margin-top: .5rem;
+    .filter {
+      margin-right: 1.5rem;
+    }
   }
 
 
