@@ -9,7 +9,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "lighthouse": "npx unlighthouse --site https://www.moonwitch.art"
   },
   "dependencies": {
     "@directus/sdk": "^16.0.0",
