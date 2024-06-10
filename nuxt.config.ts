@@ -2,7 +2,16 @@
 export default defineNuxtConfig({
     devtools: {enabled: true},
     app: {
-        pageTransition: { name: 'page', mode: 'out-in' }
+        pageTransition: { name: 'page', mode: 'out-in' },
+        head: {
+            script: [
+                {
+                    src: "https://plausible.io/js/script.js",
+                    defer: true,
+                    "data-domain": "moonwitch.art",
+                },
+            ],
+        },
     },
     modules: ["@nuxt/eslint", '@vueuse/nuxt', [
         '@nuxtjs/i18n',
@@ -48,7 +57,7 @@ export default defineNuxtConfig({
                 pass: process.env.PASS
             }
         }
-    }], "@nuxtjs/turnstile", "@nuxtjs/plausible"],
+    }], "@nuxtjs/turnstile"],
     turnstile: {
         siteKey: '0x4AAAAAAAbgZ0R7KdrBQE4C',
         addValidateEndpoint: true
