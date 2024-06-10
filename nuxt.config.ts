@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: {enabled: true},
+    site: {
+        url: "https://www.moonwitch.art",
+        name: "Moonwitch Web Development",
+        description: "I am Joshua, your personal web developer. I create your customized website, designs and logos. Get ready for great performance, search engines will love your page! Just send me a message through my contact form.",
+    },
     app: {
         pageTransition: { name: 'page', mode: 'out-in' },
         head: {
@@ -9,6 +14,18 @@ export default defineNuxtConfig({
                     src: "https://plausible.io/js/script.js",
                     defer: true,
                     "data-domain": "moonwitch.art",
+                },
+            ],
+            charset: "utf-8",
+            viewport: "width=device-width, initial-scale=1",
+            title: "moonwitch",
+            link: [
+                { rel: "icon", type: "image/png", href: "/logos/moon.png" }
+            ],
+            meta: [
+                {
+                    name: 'google-site-verification',
+                    content: 'w2oCmZUgAphMSbJo_A4zg9uHY8KLE-yUNG8VNIxRq_M'
                 },
             ],
         },
@@ -57,7 +74,7 @@ export default defineNuxtConfig({
                 pass: process.env.PASS
             }
         }
-    }], "@nuxtjs/turnstile"],
+    }], "@nuxtjs/turnstile", "@nuxtjs/seo"],
     turnstile: {
         siteKey: '0x4AAAAAAAbgZ0R7KdrBQE4C',
         addValidateEndpoint: true

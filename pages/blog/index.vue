@@ -5,6 +5,10 @@ import { formatDate } from "~/helpers/formatters";
 import type { Post } from '~/types/post.type'
 import { getImageUrl } from "~/helpers/imageurl";
 
+definePageMeta({
+  title: 'Blog'
+})
+
 const blogState = useBlog()
 const runtime = useRuntimeConfig()
 

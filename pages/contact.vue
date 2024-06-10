@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import {Label} from 'radix-vue'
 
+definePageMeta({
+  title: 'Contact Moonwitch'
+})
+
 const { t } = useI18n()
 const mail = useMail()
 const turnstile = ref()

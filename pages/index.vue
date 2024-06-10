@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+  title: 'Moonwitch Web Developer'
+})
+
 const {t} = useI18n()
 
 const nameText = computed(() => t('landing.name', "I am Joshua Langenbach."));
