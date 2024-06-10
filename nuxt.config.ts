@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     site: {
         url: "https://www.moonwitch.art",
         name: "Moonwitch Web Development",
-        description: "I am Joshua, your personal web developer. I create your customized website, designs and logos. Get ready for great performance, search engines will love your page! Just send me a message through my contact form.",
+        description: "I am Joshua, your personal web developer. I create your customized website, designs and logos.",
     },
     app: {
         pageTransition: { name: 'page', mode: 'out-in' },
