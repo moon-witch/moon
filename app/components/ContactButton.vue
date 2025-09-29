@@ -13,17 +13,17 @@ const contactText = computed(() => t('landing.contact', "Contact me"));
 <style scoped lang="scss">
 .contact-link {
   .link {
-    color: $active;
+    color: $secondary;
     font-weight: bold;
     font-size: 1.3rem;
-    border: 2px solid $active;
+    border: 2px solid $secondary;
     padding: .5rem 2rem;
 
     @media (min-width: 1024px) {
       transition: all .2s ease-in-out;
       &:hover {
-        color: $alt;
-        box-shadow: 0 0 3px 0 $alt;
+        color: $active;
+        box-shadow: 0 0 3px 0 $active;
       }
     }
   }

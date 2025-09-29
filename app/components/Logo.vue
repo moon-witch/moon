@@ -4,8 +4,9 @@
 <template>
   <div class="logo">
     <LocLink to="/" class="link">
-      <img src="/logos/sol.svg" alt="Logo of a sun, drawn with wavy lines." class="sol"/>
-      <img src="/logos/moonwitch.svg" alt="Written name of the company, moonwitch, using soft curvy lines." class="moonwitch"/>
+      <h1>moonwitch</h1>
+      <h3>Joshua Langenbach</h3>
+      <h2>Software Developer</h2>
     </LocLink>
   </div>
 </template>
@@ -16,24 +17,30 @@
 }
 
 .link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all .15s ease-in-out;
+  color: $secondary;
+  font-family: 'Cinzel', serif;
   -webkit-tap-highlight-color: transparent;
+
+  h1 {
+    font-size: 40px;
+    margin: 0 0 5px 20px;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 25px;
+    margin: 0 0 0 20px;
+    padding: 0;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin: 0 0 0 20px;
+    padding: 0;
+  }
 
   &:hover {
     filter: invert(50%);
-
-    .sol {
-      transform: rotate(3deg);
-    }
-  }
-
-  .sol {
-    width: 5rem;
-    filter: invert(80%);
-    transition: all .1s ease-in-out;
   }
 
   .moonwitch {

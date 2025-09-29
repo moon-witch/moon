@@ -207,6 +207,7 @@ const sendMail = async () => {
     min-width: 3.5rem;
     min-height: 3.5rem;
     position: relative;
+    font-family: "EB Garamond", serif;
 
     .loader {
       position: absolute;

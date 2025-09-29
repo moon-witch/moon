@@ -20,7 +20,9 @@ const closeMenu = () => {
   menuOpen.value = false
 }
 
-function onLocaleChanged(code: string) {
+type LangCode = "en" | "de" | "el" | "es"
+
+function onLocaleChanged(code: LangCode) {
   closeMenu()
   router.push({path: switchLocalePath(code)});
 }
@@ -99,7 +101,7 @@ const langSwitchText = computed(() => t('base.langSwitch', 'Change Language'));
                   class="menu-option"
                   @click="onLocaleChanged(option.code)"
               >
-                <span>
+                <span class="flag">
                   <span v-if="option.code === 'en'">🇬🇧</span>
                   <span v-if="option.code === 'de'">🇩🇪</span>
                   <span v-if="option.code === 'el'">🇬🇷</span>
@@ -136,7 +138,7 @@ const langSwitchText = computed(() => t('base.langSwitch', 'Change Language'));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-family: 'Uni Neue', sans-serif;
+  font-family: 'EB Garamond', serif;
   font-size: $font-size;
   -webkit-tap-highlight-color: transparent;
 
@@ -178,8 +180,6 @@ const langSwitchText = computed(() => t('base.langSwitch', 'Change Language'));
   left: 50%;
   transform: translateX(-50%);
   background: $primary;
-  border-radius: $radius;
-  box-shadow: 0 0 2px 1px $active;
 
   @media (max-width: 1023px) {
     flex-direction: row;
@@ -196,10 +196,14 @@ const langSwitchText = computed(() => t('base.langSwitch', 'Change Language'));
     transform: translateY(-20px);
     text-align: center;
     color: $secondary;
-    font-family: 'Uni Neue', sans-serif;
+    font-family: 'EB Garamond', serif;
     font-size: 18px;
     display: flex;
     gap: .25rem;
+
+    .flag {
+      font-family: "Uni Neue", sans-serif;
+    }
 
     .desktop-text {
       @media (max-width: 1023px) {

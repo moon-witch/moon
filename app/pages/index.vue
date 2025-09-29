@@ -15,17 +15,10 @@ const stackText = computed(() => t('landing.stack', "My stack includes"));
 
 <template>
   <div class="landing-container">
-    <div class="name"> {{ nameText }}</div>
     <section class="hero">
       <div class="text">
         <div>{{ tagText }}</div>
       </div>
-      <img src="/images/profilepicsmol.jpg" alt="Photo of Joshua aka moonwitch, the web developer, wearing a casual outfit, looking into the distance."
-           class="photo"/>
-    </section>
-    <section class="product">
-      <div>{{ productText }}</div>
-      <div>{{ infoText }}</div>
     </section>
     <section class="tools">
       <div>{{ stackText }}</div>
@@ -108,7 +101,7 @@ const stackText = computed(() => t('landing.stack', "My stack includes"));
 
   .contact {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 6rem;
 
     @media (min-width: 1024px) {
       margin-top: 5rem;

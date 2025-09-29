@@ -51,8 +51,6 @@ const open = computed(() => {
       <div v-if="open" @click="closeMenu" class="overlay"></div>
     </nav>
     <nav class="top-line-desktop">
-      <ArtButton v-if="!route.fullPath.split('/').includes('art')" class="art-button"/>
-      <BlogButton class="blog-button" />
       <Logo class="moonwitch-logo" />
       <LangSwitcher class="lang-switcher"/>
     </nav>
@@ -66,7 +64,7 @@ const open = computed(() => {
 
 <style scoped lang="scss">
 .top-line-mobile {
-  height: 6.5rem;
+  height: 170px;
 
   .overlay {
     position: absolute;
@@ -80,14 +78,14 @@ const open = computed(() => {
 
   .moonwitch-logo {
     position: absolute;
-    left: 44%;
+    left: 35%;
     transform: translateX(-50%);
   }
 
   .burger {
     position: absolute;
     right: .5rem;
-    top: 1.5rem;
+    top: -3px;
     z-index: 20;
   }
 
@@ -108,8 +106,10 @@ const open = computed(() => {
 }
 
 .top-line-desktop {
+  display: flex;
+  justify-content: space-between;
   width: 100dvw;
-  height: 6.5rem;
+  height: 8.5rem;
 
   @media (max-width: 1023px) {
     display: none;
@@ -136,9 +136,7 @@ const open = computed(() => {
   }
 
   .moonwitch-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    padding: 1rem;
   }
 
   .lang-switcher {
@@ -149,7 +147,7 @@ const open = computed(() => {
 }
 
 .content {
-  height: calc(100dvh - 6.5rem);
+  height: calc(100dvh - 8.5rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -157,6 +155,10 @@ const open = computed(() => {
   overflow-x: hidden;
   z-index: 10;
   position: relative;
+
+  @media (max-width: 1023px) {
+    height: calc(100dvh - 170px);
+  }
 }
 
 /* width */

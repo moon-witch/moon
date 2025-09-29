@@ -106,10 +106,4 @@ const currentYear = new Date().getFullYear()
     display: block;
   }
 }
-
-.link-logo {
-  :hover {
-    filter: invert(76%) sepia(6%) saturate(2569%) hue-rotate(319deg) brightness(101%) contrast(101%) !important;
-  }
-}
 </style>

@@ -16,7 +16,7 @@
   user-select: none;
   background-image: url("/logos/sol.svg");
   background-repeat: no-repeat;
-  filter: blur(5px);
+  filter: blur(2px);
 
   @media (min-width: 1024px) {
     width: 45rem;
