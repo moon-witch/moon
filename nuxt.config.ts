@@ -1,10 +1,10 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    compatibilityDate: '2025-07-15',
     devtools: {enabled: true},
     site: {
         url: "https://www.moonwitch.art",
         name: "Moonwitch Web Development",
-        description: "I am Joshua, your personal web developer. I create your customized website, designs and logos.",
+        description: "I am moonwitch/Joshua. I am a software developer.",
     },
     app: {
         pageTransition: { name: 'page', mode: 'out-in' },
@@ -27,6 +27,10 @@ export default defineNuxtConfig({
                     name: 'google-site-verification',
                     content: 'w2oCmZUgAphMSbJo_A4zg9uHY8KLE-yUNG8VNIxRq_M'
                 },
+                { name: 'description', content: 'I am Joshua, your personal web developer...' },
+                { property: 'og:title', content: 'Moonwitch Web Development' },
+                { property: 'og:url', content: 'https://www.moonwitch.art' },
+                { property: 'og:description', content: 'I am moonwitch/Joshua. I am a software developer.' },
             ],
         },
     },
@@ -56,7 +60,7 @@ export default defineNuxtConfig({
                 }
             ],
             lazy: false,
-            langDir: 'lang',
+            langDir: '../app/lang',
             defaultLocale: 'en',
             strategy: 'prefix',
             detectBrowserLanguage: false,
@@ -84,7 +88,7 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         public: {
-            directusUrl: process.env.DIRECTUS_URL,
+            directusUrl: process.env.DIRECTUS_URL
         },
         turnstile: {
             secretKey: process.env.TURNSTILE_KEY
@@ -94,7 +98,7 @@ export default defineNuxtConfig({
         css: {
             preprocessorOptions: {
                 scss: {
-                    additionalData: '@import "~/assets/main.scss";'
+                    additionalData: '@use "~/assets/variables.scss" as *;'
                 }
             }
         }

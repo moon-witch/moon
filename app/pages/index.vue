@@ -5,6 +5,7 @@ definePageMeta({
 
 const {t} = useI18n()
 
+
 const nameText = computed(() => t('landing.name', "I am Joshua Langenbach."));
 const tagText = computed(() => t('landing.tag', "I create things for the Web."));
 const productText = computed(() => t('landing.product', "Design - Development - Hosting"));

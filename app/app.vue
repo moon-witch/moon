@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import "/assets/main.scss";
 </script>
 
 <template>
@@ -10,12 +11,12 @@
 </template>
 
 <style lang="scss">
-@import "@/public/fonts/stylesheet.css";
+@import "../public/fonts/stylesheet.css";
 
 .app-container {
   background: $primary;
   min-height: 100dvh;
-  font-family: 'Uni Neue', sans-serif;
+  font-family: 'EB Garamond', serif;
   font-size: $font-size;
   overflow-x: hidden;
 }
