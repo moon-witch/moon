@@ -5,27 +5,21 @@ definePageMeta({
 
 const {t} = useI18n()
 
-
-const nameText = computed(() => t('landing.name', "I am Joshua Langenbach."));
 const tagText = computed(() => t('landing.tag', "I create things for the Web."));
-const productText = computed(() => t('landing.product', "Design - Development - Hosting"));
-const infoText = computed(() => t('landing.info', "My passion lies in custom, artful websites. I specialize in clean, unique designs where you feel intuitively at home."));
 const stackText = computed(() => t('landing.stack', "My stack includes"));
 </script>
 
 <template>
   <div class="landing-container">
     <section class="hero">
-      <div class="text">
-        <div>{{ tagText }}</div>
-      </div>
-    </section>
-    <section class="tools">
-      <div>{{ stackText }}</div>
-      <Icons />
+        <div class="text">{{ tagText }}</div>
     </section>
     <section class="contact">
       <ContactButton/>
+    </section>
+    <section class="tools">
+      <div class="stack-text">{{ stackText }}</div>
+      <Icons />
     </section>
   </div>
 </template>
@@ -60,31 +54,7 @@ const stackText = computed(() => t('landing.stack', "My stack includes"));
     }
 
     .text {
-      font-size: 1.3rem;
-    }
-
-    .photo {
-      width: 7rem;
-      height: 7rem;
-      border: 1px solid $active;
-      border-radius: 5px;
-    }
-  }
-
-  .product {
-    margin-top: 1rem;
-    text-align: center;
-
-    @media (min-width: 1024px) {
-      margin-top: 2rem;
-    }
-
-    > div {
-      &:first-child {
-        font-weight: bold;
-        color: $active;
-        margin: 2rem;
-      }
+      font-size: 3.5rem;
     }
   }
 
@@ -93,6 +63,11 @@ const stackText = computed(() => t('landing.stack', "My stack includes"));
     font-weight: bold;
     margin-top: 2rem;
     font-size: 1.3rem;
+
+    .stack-text {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
 
     @media (min-width: 1024px) {
       padding-top: 2rem;
@@ -124,7 +99,7 @@ const stackText = computed(() => t('landing.stack', "My stack includes"));
       flex-direction: row;
 
       .text {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
 
       .photo {

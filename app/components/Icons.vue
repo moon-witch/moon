@@ -78,7 +78,7 @@ const icons = [
     image: 'icons/tools/docker.png',
     alt: "Icon that represents Docker, the containerization tool",
     invert: false,
-    type: "Backend"
+    type: "DevOps"
   },
   {
     link: 'https://redis.io',
@@ -91,23 +91,15 @@ const icons = [
   {
     link: 'https://aws.amazon.com/',
     title: 'AWS',
-    image: 'icons/tools/aws.png',
+    image: 'icons/tools/aws.svg',
     alt: "Icon that represents Amazon Web Services",
     invert: false,
-    type: "Backend"
-  },
-  {
-    link: 'https://svelte.dev/',
-    title: 'Svelte',
-    image: 'icons/tools/svelte.png',
-    alt: "Icon that represents the Svelte frontend framework",
-    invert: false,
-    type: "Frontend"
+    type: "DevOps"
   },
   {
     link: 'https://kit.svelte.dev/',
     title: 'SvelteKit',
-    image: 'icons/tools/sveltekit.png',
+    image: 'icons/tools/svelte.svg',
     alt: "Icon that represents the SvelteKit framework",
     invert: false,
     type: "Frontend"
@@ -115,7 +107,7 @@ const icons = [
   {
     link: 'https://nodejs.org/',
     title: 'Node.js',
-    image: 'icons/tools/nodejs.png',
+    image: 'icons/tools/nodejs.svg',
     alt: "Icon that represents Node.js runtime",
     invert: false,
     type: "Backend"
@@ -142,7 +134,7 @@ const icons = [
     image: 'icons/tools/jenkins.png',
     alt: "Icon that represents Jenkins CI/CD tool",
     invert: false,
-    type: "Backend"
+    type: "DevOps"
   },
   {
     link: 'https://git-scm.com/',
@@ -167,6 +159,30 @@ const icons = [
     alt: "Icon that represents the Python programming language",
     invert: false,
     type: "Language"
+  },
+  {
+    link: 'https://openai.com',
+    title: 'OpenAI',
+    image: 'icons/tools/openai.png',
+    alt: "Icon that represents the OpenAI LLM provider",
+    invert: true,
+    type: "AI"
+  },
+  {
+    link: 'https://www.anthropic.com',
+    title: 'Anthropic',
+    image: 'icons/tools/anthropic.png',
+    alt: "Icon that represents the Anthropic LLM provider",
+    invert: false,
+    type: "AI"
+  },
+  {
+    link: 'https://aws.amazon.com/bedrock/',
+    title: 'AWS Bedrock',
+    image: 'icons/tools/bedrock.png',
+    alt: "Icon that represents the AWS Bedrock LLM Agent provider",
+    invert: false,
+    type: "AI"
   }
 ]
 </script>
@@ -197,6 +213,12 @@ const icons = [
         <img v-if="icon.type === 'DevOps'" :src="icon.image" :alt="icon.alt" :class="{ 'invert':  icon.invert }"/>
       </a>
     </section>
+    <section>
+      <h4>AI</h4>
+      <a v-for="(icon, index) in icons" :key="index" :href="icon.link" target="_blank" tabindex="0" :title="icon.title">
+        <img v-if="icon.type === 'AI'" :src="icon.image" :alt="icon.alt" :class="{ 'invert':  icon.invert }"/>
+      </a>
+    </section>
   </div>
 </template>
 
@@ -206,6 +228,7 @@ const icons = [
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 2rem;
 
   section {
     h4 {
@@ -218,11 +241,11 @@ const icons = [
       align-items: center;
     }
     img {
-      width: 48px;
-      margin: .3rem;
+      height: 48px;
+      margin: .5rem;
 
       @media (min-width: 1024px) {
-        margin: 0 .75rem;
+        margin: .3rem .75rem;
       }
 
       &.invert {
