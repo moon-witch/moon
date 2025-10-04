@@ -1,17 +1,20 @@
 {
   "base": {
-    "serviceType": "Web Development & Design",
     "langSwitch": "Change Language",
     "blogCTA": "Check out my blog",
     "artCTA": "I'm also an artist!"
   },
   "landing": {
-    "name": "I am Joshua Langenbach.",
     "tag": "I create things for the Web.",
-    "product": "Design - Development - Hosting",
-    "info": "My passion lies in custom, artful websites. I specialize in clean, unique designs where you feel intuitively at home.",
     "stack": "My stack includes",
     "contact": "Contact me"
+  },
+  "icons": {
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "devops": "DevOps",
+    "ai": "AI",
+    "languages": "Languages"
   },
   "contact": {
     "title": "Contact",

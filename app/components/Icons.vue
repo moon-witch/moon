@@ -185,36 +185,76 @@ const icons = [
     type: "AI"
   }
 ]
+
+const {t} = useI18n()
+
+const frontendText = computed(() => t('icons.frontend', "Frontend"))
+const backendText = computed(() => t('icons.backend', "Backend"))
+const devOpsText = computed(() => t('icons.devops', "DevOps"))
+const aiText = computed(() => t('icons.ai', "AI"))
+const languagesText = computed(() => t('icons.languages', "Languages"))
 </script>
 
 <template>
-  <div class="icons">
+  <div class="icons desktop">
     <section>
-      <h4>Languages</h4>
+      <h4>{{ languagesText }}</h4>
       <a v-for="(icon, index) in icons" :key="index" :href="icon.link" target="_blank" tabindex="0" :title="icon.title">
         <img v-if="icon.type === 'Language'" :src="icon.image" :alt="icon.alt" :class="{ 'invert':  icon.invert }"/>
       </a>
     </section>
     <section>
-      <h4>Frontend</h4>
+      <h4>{{ frontendText }}</h4>
       <a v-for="(icon, index) in icons" :key="index" :href="icon.link" target="_blank" tabindex="0" :title="icon.title">
         <img v-if="icon.type === 'Frontend'" :src="icon.image" :alt="icon.alt" :class="{ 'invert':  icon.invert }"/>
       </a>
     </section>
     <section>
-      <h4>Backend</h4>
+      <h4>{{ backendText }}</h4>
       <a v-for="(icon, index) in icons" :key="index" :href="icon.link" target="_blank" tabindex="0" :title="icon.title">
         <img v-if="icon.type === 'Backend'" :src="icon.image" :alt="icon.alt" :class="{ 'invert':  icon.invert }"/>
       </a>
     </section>
     <section>
-      <h4>DevOps</h4>
+      <h4>{{ devOpsText }}</h4>
       <a v-for="(icon, index) in icons" :key="index" :href="icon.link" target="_blank" tabindex="0" :title="icon.title">
         <img v-if="icon.type === 'DevOps'" :src="icon.image" :alt="icon.alt" :class="{ 'invert':  icon.invert }"/>
       </a>
     </section>
     <section>
-      <h4>AI</h4>
+      <h4>{{ aiText }}</h4>
+      <a v-for="(icon, index) in icons" :key="index" :href="icon.link" target="_blank" tabindex="0" :title="icon.title">
+        <img v-if="icon.type === 'AI'" :src="icon.image" :alt="icon.alt" :class="{ 'invert':  icon.invert }"/>
+      </a>
+    </section>
+  </div>
+  <div class="icons mobile">
+    <section>
+      <h4>{{ frontendText }}</h4>
+      <a v-for="(icon, index) in icons" :key="index" :href="icon.link" target="_blank" tabindex="0" :title="icon.title">
+        <img v-if="icon.type === 'Frontend'" :src="icon.image" :alt="icon.alt" :class="{ 'invert':  icon.invert }"/>
+      </a>
+    </section>
+    <section>
+      <h4>{{ backendText }}</h4>
+      <a v-for="(icon, index) in icons" :key="index" :href="icon.link" target="_blank" tabindex="0" :title="icon.title">
+        <img v-if="icon.type === 'Backend'" :src="icon.image" :alt="icon.alt" :class="{ 'invert':  icon.invert }"/>
+      </a>
+    </section>
+    <section>
+      <h4>{{ devOpsText }}</h4>
+      <a v-for="(icon, index) in icons" :key="index" :href="icon.link" target="_blank" tabindex="0" :title="icon.title">
+        <img v-if="icon.type === 'DevOps'" :src="icon.image" :alt="icon.alt" :class="{ 'invert':  icon.invert }"/>
+      </a>
+    </section>
+    <section>
+      <h4>{{ languagesText }}</h4>
+      <a v-for="(icon, index) in icons" :key="index" :href="icon.link" target="_blank" tabindex="0" :title="icon.title">
+        <img v-if="icon.type === 'Language'" :src="icon.image" :alt="icon.alt" :class="{ 'invert':  icon.invert }"/>
+      </a>
+    </section>
+    <section>
+      <h4>{{ aiText }}</h4>
       <a v-for="(icon, index) in icons" :key="index" :href="icon.link" target="_blank" tabindex="0" :title="icon.title">
         <img v-if="icon.type === 'AI'" :src="icon.image" :alt="icon.alt" :class="{ 'invert':  icon.invert }"/>
       </a>
@@ -224,6 +264,19 @@ const icons = [
 
 <style scoped lang="scss">
 .icons {
+
+  @media (min-width: 700px) {
+    &.mobile {
+      display: none;
+    }
+  }
+
+  @media (max-width: 700px) {
+    &.desktop {
+      display: none
+    }
+  }
+
   display: flex;
   align-items: flex-start;
   justify-content: center;

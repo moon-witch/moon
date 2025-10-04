@@ -120,7 +120,6 @@ const langSwitchText = computed(() => t('base.langSwitch', 'Change Language'));
 <style scoped lang="scss">
 .menu-container {
   position: relative;
-  width: 10rem;
   display: flex;
   align-items: center;
   justify-content: center;

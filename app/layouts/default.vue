@@ -21,7 +21,7 @@ const menuOpenWidth = computed(() => {
 
 const menuOpenHeight = computed(() => {
   if (burgerState.menuOpen.value) {
-    return '60dvh'
+    return '30dvh'
   } else {
     closeMenu()
     return '0'
@@ -78,7 +78,7 @@ const open = computed(() => {
 
   .moonwitch-logo {
     position: absolute;
-    left: 35%;
+    left: 150px;
     transform: translateX(-50%);
   }
 

@@ -32,8 +32,7 @@ const horizontalLength = computed(() => {
     <div v-if="show" class="menu-container extended-border-button">
       <ul class="nav-list">
         <li class="link-buttons">
-          <BlogButton @click="closeMenu"/>
-          <ArtButton @click="closeMenu"/>
+          <!-- <BlogButton @click="closeMenu"/> !-->
         </li>
         <li v-if="showContent" class="languages">
           <LangSwitcher/>
@@ -46,11 +45,11 @@ const horizontalLength = computed(() => {
 <style scoped lang="scss">
 .menu-container {
   background: $secondary;
-  font-size: .9rem;
+  font-size: 1rem;
 
   .nav-list {
-    height: 90%;
-    width: 70%;
+    height: 80%;
+    width: 72%;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -64,7 +63,6 @@ const horizontalLength = computed(() => {
       align-items: center;
       justify-content: center;
       gap: 1rem;
-      margin-left: -.5rem;
     }
   }
 }
