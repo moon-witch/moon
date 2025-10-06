@@ -2,8 +2,7 @@ export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: {enabled: true},
     nitro: {
-        preset: 'node-server',
-        serveStatic: true,
+        preset: 'node-server'
     },
     devServer: {
         port: 3000,
