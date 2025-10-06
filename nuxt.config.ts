@@ -1,6 +1,14 @@
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: {enabled: true},
+    nitro: {
+        preset: 'node-server',
+        serveStatic: true,
+    },
+    devServer: {
+        port: 3000,
+        host: '0.0.0.0',
+    },
     site: {
         url: "https://www.moonwitch.art",
         name: "Moonwitch Web Development",
