@@ -183,7 +183,15 @@ const icons = [
     alt: "Icon that represents the AWS Bedrock LLM Agent provider",
     invert: false,
     type: "AI"
-  }
+  },
+  {
+    link: 'https://www.hetzner.com',
+    title: 'Hetzner',
+    image: 'icons/tools/hetzner.jpeg',
+    alt: "Icon that represents the Hetzner VPS provider",
+    invert: false,
+    type: "DevOps"
+  },
 ]
 
 const {t} = useI18n()
