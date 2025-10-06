@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import LangSwitcher from "~/components/buttons/LangSwitcher.vue";
+
 const burgerState: any = inject('burger')
 
 const showContent = ref(false)

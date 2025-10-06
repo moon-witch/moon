@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {useBurger} from "~/composables/useBurger";
+import LangSwitcher from "~/components/buttons/LangSwitcher.vue";
 
 const route = useRoute()
 

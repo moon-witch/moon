@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import ParticleHeart from "~/components/animations/ParticleHeart.vue";
+import ContactButton from "~/components/buttons/ContactButton.vue";
+import ParticleEye from "~/components/animations/ParticleEye.vue";
+
 definePageMeta({
   title: 'Moonwitch Web Developer'
 })
@@ -16,6 +20,30 @@ const stackText = computed(() => t('landing.stack', "My stack includes"));
     </section>
     <section class="contact">
       <ContactButton/>
+    </section>
+    <section class="animated-button">
+      <ParticleHeart
+          :width="120"
+          :height="120"
+          :particleCount="8000"
+          :duration="2.5"
+          :amplitude="0.03"
+          :hoverBoost="0.055"
+          :rotation-z="0"
+      />
+    </section>
+    <section class="animated-button">
+      <ParticleEye
+          :width="360"
+          :height="360"
+          modelPath="/glb-models/lowpoly_human_eye.glb"
+          :particleCount="16000"
+          :amplitude="0.06"
+          :animationSpeed="0.8"
+        :gazeMoveFactor="0.35"
+        coreColor="#FF3B3B"
+        edgeColor="#7A0014"
+      />
     </section>
     <section class="tools">
       <div class="stack-text">{{ stackText }}</div>
@@ -53,6 +81,16 @@ const stackText = computed(() => t('landing.stack', "My stack includes"));
 
     @media (min-width: 1024px) {
       margin-top: 5rem;
+    }
+  }
+
+  .animated-button {
+    border: 1px solid $active;
+    width: 250px;
+    height: 250px;
+
+    &:hover {
+      border: 1px solid $secondary;
     }
   }
 
