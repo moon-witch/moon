@@ -18,10 +18,10 @@ export default defineNuxtConfig({
         head: {
             script: [
                 {
-                    src: "https://plausible.io/js/script.js",
                     defer: true,
-                    "data-domain": "moonwitch.art",
-                },
+                    src: 'https://analytics.moonwitch.art/script.js',
+                    'data-website-id': 'b5850637-8171-49af-918b-3e974699cf1d'
+                }
             ],
             charset: "utf-8",
             viewport: "width=device-width, initial-scale=1",
