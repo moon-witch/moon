@@ -3,6 +3,7 @@ import ParticleHeart from "~/components/animations/ParticleHeart.vue";
 import ContactButton from "~/components/buttons/ContactButton.vue";
 import ParticleEye from "~/components/animations/ParticleEye.vue";
 import ParticleCell from "~/components/animations/ParticleCell.vue";
+import { useModelPreloader } from '~/composables/useModelPreloader.js'
 
 definePageMeta({
   title: 'Moonwitch Web Developer'
@@ -12,6 +13,20 @@ const {t} = useI18n()
 
 const tagText = computed(() => t('landing.tag', "I create things for the Web."));
 const stackText = computed(() => t('landing.stack', "My stack includes"));
+
+onBeforeMount(async () => {
+  await useModelPreloader([
+    '/glb-models/lowpoly_human_heart.glb',
+    '/glb-models/lowpoly_human_eye.glb',
+    '/glb-models/lowpoly_cell.glb'
+  ])
+})
+
+const transitionKey = ref(0)
+
+onMounted(() => {
+  transitionKey.value++
+})
 </script>
 
 <template>
@@ -22,8 +37,9 @@ const stackText = computed(() => t('landing.stack', "My stack includes"));
     <section class="contact">
       <ContactButton/>
     </section>
-    <section class="route-buttons">
-      <div>
+    <section>
+      <TransitionGroup appear :key="transitionKey" name="fade" tag="div" class="route-buttons" mode="out-in">
+      <div key="projects">
         <h4>Projects</h4>
         <LocLink to="/projects">
           <div class="animated-button">
@@ -39,7 +55,7 @@ const stackText = computed(() => t('landing.stack', "My stack includes"));
           </div>
         </LocLink>
       </div>
-      <div>
+      <div key="art">
         <h4>Art</h4>
         <LocLink to="/art">
           <div class="animated-button">
@@ -56,7 +72,7 @@ const stackText = computed(() => t('landing.stack', "My stack includes"));
           </div>
         </LocLink>
       </div>
-      <div>
+      <div key="blog">
         <h4>Blog</h4>
         <LocLink to="/blog">
           <div class="animated-button eye" style="position: relative;">
@@ -90,6 +106,7 @@ const stackText = computed(() => t('landing.stack', "My stack includes"));
           </div>
         </LocLink>
       </div>
+      </TransitionGroup>
     </section>
     <section class="tools">
       <div class="stack-text">{{ stackText }}</div>
@@ -180,5 +197,28 @@ const stackText = computed(() => t('landing.stack', "My stack includes"));
       margin-bottom: 1rem;
     }
   }
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: opacity 3s ease;
+}
+
+.fade-enter-to {
+  opacity: 1;
+}
+
+.route-buttons > div:nth-child(1).fade-enter-active {
+  transition-delay: 0ms;
+}
+.route-buttons > div:nth-child(2).fade-enter-active {
+  transition-delay: 200ms;
+}
+.route-buttons > div:nth-child(3).fade-enter-active {
+  transition-delay: 400ms;
 }
 </style>
