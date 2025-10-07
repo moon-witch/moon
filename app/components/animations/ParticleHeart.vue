@@ -42,7 +42,7 @@ const props = defineProps({
   basePointSize: { type: Number, default: 2.2 },
   jitterAmplitude: { type: Number, default: 0.06 },
   intensity: { type: Number, default: 1.0 },
-  coreColor: { type: String, default: '#cd0101' },
+  coreColor: { type: String, default: '#7CF8FF' },
   edgeColor: { type: String, default: '#7A0014' },
   animated: { type: Boolean, default: true },
   modelPath: { type: String, default: '/glb-models/lowpoly_human_heart.glb' }

@@ -2,11 +2,10 @@
   <ClientOnly>
     <div
         ref="container"
+        class="particle-eye-canvas"
         :style="{
         width: typeof width === 'number' ? width + 'px' : width,
         height: typeof height === 'number' ? height + 'px' : height,
-        position: 'relative',
-        display: 'block',
         cursor: 'pointer'
       }"
         @pointerenter="onHover(true)"
@@ -25,7 +24,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { MeshSurfaceSampler } from 'three/examples/jsm/math/MeshSurfaceSampler.js'
 
 // Reuse the heart shaders & utils for consistent particle appearance
-import { vertexShader, fragmentShader } from '~/assets/animations/particle-eye/eyeShaders'
+import { vertexShader, fragmentShader } from '~/assets/animations/particle-cell/cellShaders'
 import { hexToLinearColor } from '~/assets/animations/particle-eye/eyeUtils'
 
 // Continuous gaze controller
@@ -48,7 +47,7 @@ const props = defineProps({
   basePointSize: { type: Number, default: 2.2 },
   jitterAmplitude: { type: Number, default: 0.05 },
   intensity: { type: Number, default: 1.0 },
-  coreColor: { type: String, default: '#FF3B3B' },
+  coreColor: { type: String, default: '#7CF8FF' },
   edgeColor: { type: String, default: '#7A0014' },
   duration: { type: Number, default: 1.0 },
   animated: { type: Boolean, default: true },
@@ -278,3 +277,12 @@ onBeforeUnmount(() => {
   }
 })
 </script>
+
+<style scoped>
+.particle-eye-canvas {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+}
+</style>

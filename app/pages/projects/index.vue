@@ -1,12 +1,12 @@
 <script setup lang="ts">
 definePageMeta({
-  title: 'Art'
+  title: 'Projects'
 })
 </script>
 
 <template>
   <div>
-    Welcome to my art! Work in progress.
+    Welcome to my projects! Work in progress.
   </div>
 </template>
 
