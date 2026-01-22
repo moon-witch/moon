@@ -51,9 +51,6 @@ const open = computed(() => {
       <MobileNav class="burger"/>
       <MobileMenu class="burger-menu"/>
       <div v-if="open" @click="closeMenu" class="overlay"></div>
-      <div style="position: absolute; top: 0; left: 0; width: 100dvw; height: 100dvw; z-index: 1; overflow: hidden; opacity: 0.05;">
-        <GeometryAnimation :speed="0.2"/>
-      </div>
     </nav>
     <nav class="top-line-desktop">
       <Logo class="moonwitch-logo" />

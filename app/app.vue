@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import "/assets/main.scss";
+import GeometryAnimation from "~/components/animations/GeometryAnimation.vue";
 </script>
 
 <template>
