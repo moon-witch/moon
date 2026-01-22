@@ -66,7 +66,7 @@ const langSwitchText = computed(() => t('base.langSwitch', 'Change Language'));
 </script>
 
 <template>
-  <div class="menu-container">
+  <div class="menu-container" style="z-index: 10;">
     <ClientOnly>
       <DropdownMenuRoot v-model:open="menuOpen">
         <DropdownMenuTrigger

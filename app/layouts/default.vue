@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {useBurger} from "~/composables/useBurger";
 import LangSwitcher from "~/components/buttons/LangSwitcher.vue";
+import GeometryAnimation from "~/components/animations/GeometryAnimation.vue";
 
 const route = useRoute()
 
@@ -54,12 +55,14 @@ const open = computed(() => {
     <nav class="top-line-desktop">
       <Logo class="moonwitch-logo" />
       <LangSwitcher class="lang-switcher"/>
+      <div style="position: absolute; top: 0; left: 0; width: 100dvw; height: 100dvw; z-index: 1; overflow: hidden; opacity: 0.05;">
+        <GeometryAnimation :speed="0.2"/>
+      </div>
     </nav>
     <div class="content">
       <slot />
       <Footer />
     </div>
-    <Sol />
   </main>
 </template>
 

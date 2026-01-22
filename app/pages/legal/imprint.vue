@@ -14,6 +14,11 @@ definePageMeta({
         <LocLink to="/contact" class="link">contact form</LocLink>.
       </p>
     </div>
+    <div class="inspiration">
+      <h2>Credits</h2>
+      <p>Geometry background animation inspired by <a href="https://codepen.io/atzedent/pen/GRwVpKz" target="_blank">Matthias Hurrle</a></p>
+      <p>Circle button animations inspired by <a href="https://codepen.io/filipz" target="_blank">Filip Zrnzevic</a></p>
+    </div>
   </div>
 </template>
 
@@ -64,6 +69,18 @@ definePageMeta({
         }
       }
     }
+  }
+}
+
+.inspiration {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    color: $alt;
   }
 }
 </style>

@@ -1,9 +1,32 @@
 <script setup lang="ts">
-import ParticleHeart from "~/components/animations/ParticleHeart.vue";
+import type {Component} from "vue";
 import ContactButton from "~/components/buttons/ContactButton.vue";
-import ParticleEye from "~/components/animations/ParticleEye.vue";
-import ParticleCell from "~/components/animations/ParticleCell.vue";
-import { useModelPreloader } from '~/composables/useModelPreloader.js'
+import RadialPulseButton from "~/components/animations/buttons/RadialPulseButton.vue";
+import OrbitalPulseButton from "~/components/animations/buttons/OrbitalPulseButton.vue";
+import PendulumWaveButton from "~/components/animations/buttons/PendulumWaveButton.vue";
+import PulseWaveButton from "~/components/animations/buttons/PulseWaveButton.vue";
+import ConcentricRingsButton from "~/components/animations/buttons/ConcentricRingsButton.vue";
+import SequentialPulseButton from "~/components/animations/buttons/SequentialPulseButton.vue";
+import OscillatingDotsButton from "~/components/animations/buttons/OscillatingDotsButton.vue";
+import PulsingGridButton from "~/components/animations/buttons/PulsingGridButton.vue";
+import SpiralGalaxyButton from "~/components/animations/buttons/SpiralGalaxyButton.vue";
+import CrystallineCubeRefractionButton from "~/components/animations/buttons/CrystallineCubeRefractionButton.vue";
+import CrystallineRefractionButton from "~/components/animations/buttons/CrystallineRefractionButton.vue";
+import CylindricalAnalysisButton from "~/components/animations/buttons/CylindricalAnalysisButton.vue";
+import HelixScannerButton from "~/components/animations/buttons/HelixScannerButton.vue";
+import InterconnectingWavesButton from "~/components/animations/buttons/InterconnectingWavesButton.vue";
+import PhasedArrayEmitterButton from "~/components/animations/buttons/PhasedArrayEmitterButton.vue";
+import SonarSweepButton from "~/components/animations/buttons/SonarSweepButton.vue";
+import SphereScanButton from "~/components/animations/buttons/SphereScanButton.vue";
+import VoxelMatrixMorphButton from "~/components/animations/buttons/VoxelMatrixMorphButton.vue";
+import PulseShockwaveButton from "~/components/animations/buttons/PulseShockwaveButton.vue";
+import PulseWaveSpiralButton from "~/components/animations/buttons/PulseWaveSpiralButton.vue";
+import BreathingGridButton from "~/components/animations/buttons/BreathingGridButton.vue";
+import FlowingEnergyBandsButton from "~/components/animations/buttons/FlowingEnergyBandsButton.vue";
+import StretchedRingsButton from "~/components/animations/buttons/StretchedRingsButton.vue";
+import InterwovenPulsesButton from "~/components/animations/buttons/InterwovenPulsesButton.vue";
+import SpiralRadiatingPulseButton from "~/components/animations/buttons/SpiralRadiatingPulseButton.vue";
+import RadiatingLineScanButton from "~/components/animations/buttons/RadiatingLineScanButton.vue";
 
 definePageMeta({
   title: 'Moonwitch Web Developer'
@@ -14,17 +37,67 @@ const {t} = useI18n()
 const tagText = computed(() => t('landing.tag', "I create things for the Web."));
 const stackText = computed(() => t('landing.stack', "My stack includes"));
 
-onBeforeMount(async () => {
-  await useModelPreloader([
-    '/glb-models/lowpoly_human_heart.glb',
-    '/glb-models/lowpoly_human_eye.glb',
-    '/glb-models/lowpoly_cell.glb'
-  ])
-})
-
 const transitionKey = ref(0)
 
+const animationPool = [
+  RadialPulseButton,
+  OrbitalPulseButton,
+  PendulumWaveButton,
+  PulseWaveButton,
+  ConcentricRingsButton,
+  SequentialPulseButton,
+  OscillatingDotsButton,
+  PulsingGridButton,
+  SpiralGalaxyButton,
+  CrystallineCubeRefractionButton,
+  CrystallineRefractionButton,
+  CylindricalAnalysisButton,
+  HelixScannerButton,
+  InterconnectingWavesButton,
+  PhasedArrayEmitterButton,
+  SonarSweepButton,
+  SphereScanButton,
+  VoxelMatrixMorphButton,
+  PulseShockwaveButton,
+  PulseWaveSpiralButton,
+  BreathingGridButton,
+  FlowingEnergyBandsButton,
+  StretchedRingsButton,
+  InterwovenPulsesButton,
+  SpiralRadiatingPulseButton,
+  RadiatingLineScanButton
+] as const satisfies readonly Component[];
+
+type Pool = typeof animationPool;
+type PoolItem = Pool[number];
+type Pick3 = readonly [PoolItem, PoolItem, PoolItem];
+
+const selectedAnimations = shallowRef<Pick3>([
+  animationPool[0],
+  animationPool[1],
+  animationPool[2]
+]);
+
+function pickThreeRandom(): Pick3 {
+  const idx: number[] = Array.from({length: animationPool.length}, (_, i) => i);
+
+  for (let i = idx.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+
+    const tmp = idx[i]!;
+    idx[i] = idx[j]!;
+    idx[j] = tmp;
+  }
+
+  const a = idx[0]!;
+  const b = idx[1]!;
+  const c = idx[2]!;
+
+  return [animationPool[a]!, animationPool[b]!, animationPool[c]!];
+}
+
 onMounted(() => {
+  selectedAnimations.value = pickThreeRandom();
   transitionKey.value++
 })
 </script>
@@ -32,85 +105,48 @@ onMounted(() => {
 <template>
   <div class="landing-container">
     <section class="hero">
-        <div class="text">{{ tagText }}</div>
+      <div class="text">{{ tagText }}</div>
     </section>
     <section class="contact">
       <ContactButton/>
     </section>
     <section>
       <TransitionGroup appear :key="transitionKey" name="fade" tag="div" class="route-buttons" mode="out-in">
-      <div key="projects">
-        <h4>Projects</h4>
-        <LocLink to="/projects">
-          <div class="animated-button">
-            <ParticleHeart
-                :width="120"
-                :height="120"
-                :particleCount="3000"
-                :duration="2.5"
-                :amplitude="0.03"
-                :hoverBoost="0.055"
-                :rotation-z="0"
-            />
-          </div>
-        </LocLink>
-      </div>
-      <div key="art">
-        <h4>Art</h4>
-        <LocLink to="/art">
-          <div class="animated-button">
-            <ParticleCell
-                :width="250"
-                :height="250"
-                modelPath="/glb-models/lowpoly_cell.glb"
-                :particleCount="18000"
-                :basePointSize="0.5"
-                :motionSpeed="0.7"
-                :motionScale="0.19"
-                :twinkle="0.45"
-            />
-          </div>
-        </LocLink>
-      </div>
-      <div key="blog">
-        <h4>Blog</h4>
-        <LocLink to="/blog">
-          <div class="animated-button eye" style="position: relative;">
-            <ParticleEye
-                :width="250"
-                :height="250"
-                modelPath="/glb-models/lowpoly_human_eye.glb"
-                :particleCount="9000"
-                :amplitude="0.06"
-                :animationSpeed="0.1"
-                :gazeMoveFactor="0.05"
-                :base-point-size="0.05"
-                :intensity="0.7"
-                class="instance-eye"
-            />
-            <ParticleEye
-                :width="50"
-                :height="50"
-                modelPath="/glb-models/lowpoly_human_eye.glb"
-                :particleCount="3000"
-                :amplitude="0.5"
-                :animationSpeed="0.1"
-                :gazeMoveFactor="0.3"
-                coreColor="#000555"
-                edgeColor="#000333"
-                :base-point-size="0.05"
-                :intensity="0.7"
-                class="instance-eye"
-                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow: visible;"
-            />
-          </div>
-        </LocLink>
-      </div>
+        <div key="projects">
+          <h4>Projects</h4>
+          <LocLink to="/projects">
+            <div class="animated-button">
+              <ClientOnly>
+                <component :is="selectedAnimations[0]"/>
+              </ClientOnly>
+            </div>
+          </LocLink>
+        </div>
+        <div key="art">
+          <h4>Art</h4>
+          <LocLink to="/art">
+            <div class="animated-button">
+              <ClientOnly>
+                <component :is="selectedAnimations[1]"/>
+              </ClientOnly>
+            </div>
+          </LocLink>
+        </div>
+        <div key="blog">
+          <h4>Blog</h4>
+          <LocLink to="/blog">
+            <div class="animated-button">
+              <ClientOnly>
+                <component :is="selectedAnimations[2]"/>
+              </ClientOnly>
+            </div>
+          </LocLink>
+        </div>
       </TransitionGroup>
     </section>
     <section class="tools">
       <div class="stack-text">{{ stackText }}</div>
-      <Icons />
+      <Icons/>
     </section>
   </div>
 </template>
@@ -169,16 +205,6 @@ onMounted(() => {
       &:hover {
         border: 1px solid $secondary;
       }
-
-      .eye {
-        .instance-eye {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
-      }
     }
   }
 
@@ -189,7 +215,7 @@ onMounted(() => {
     padding-top: 2rem;
 
     @media (min-width: 1024px) {
-        margin-top: 3rem;
+      margin-top: 3rem;
     }
 
     .stack-text {
@@ -205,7 +231,7 @@ onMounted(() => {
 }
 
 .fade-enter-active {
-  transition: opacity 9s ease;
+  transition: opacity 3s ease;
 }
 
 .fade-enter-to {
@@ -215,9 +241,11 @@ onMounted(() => {
 .route-buttons > div:nth-child(1).fade-enter-active {
   transition-delay: 0ms;
 }
+
 .route-buttons > div:nth-child(2).fade-enter-active {
   transition-delay: 200ms;
 }
+
 .route-buttons > div:nth-child(3).fade-enter-active {
   transition-delay: 400ms;
 }
