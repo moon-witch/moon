@@ -57,9 +57,11 @@ const open = computed(() => {
     <nav class="top-line-desktop">
       <Logo class="moonwitch-logo" />
       <LangSwitcher class="lang-switcher"/>
-      <div style="position: absolute; top: 0; left: 0; width: 100dvw; height: 100dvw; z-index: 1; overflow: hidden; opacity: 0.2; filter: blur(10px);">
-        <GeometryAnimation :speed="0.1"/>
-      </div>
+      <Transition name="fade" appear>
+        <div class="geo-bg">
+          <GeometryAnimation :speed="0.1"/>
+        </div>
+      </Transition>
     </nav>
     <div class="content">
       <slot />
@@ -69,6 +71,18 @@ const open = computed(() => {
 </template>
 
 <style scoped lang="scss">
+.geo-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvw;
+  z-index: 1;
+  overflow: hidden;
+  filter: blur(10px);
+  opacity: 0.2;
+}
+
 .top-line-mobile {
   height: 100px;
   width: 100dvw;
@@ -195,5 +209,20 @@ const open = computed(() => {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: $active;
+}
+
+.fade-enter-active,
+.fade-appear-active {
+  transition: opacity 3s ease;
+}
+
+.fade-enter-from,
+.fade-appear-from {
+  opacity: 0;
+}
+
+.fade-enter-to,
+.fade-appear-to {
+  opacity: 0.2;
 }
 </style>

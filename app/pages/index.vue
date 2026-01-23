@@ -218,7 +218,7 @@ onMounted(() => {
       transition: filter 0.2s ease, border 0.2s ease;
 
       @media (min-width: 1024px) {
-        filter: blur(2px);
+        filter: blur(1px);
         width: 250px;
         height: 250px;
       }

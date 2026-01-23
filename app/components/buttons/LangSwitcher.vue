@@ -178,7 +178,6 @@ const langSwitchText = computed(() => t('base.langSwitch', 'Change Language'));
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  background: $primary;
 
   @media (max-width: 1023px) {
     flex-direction: row;
