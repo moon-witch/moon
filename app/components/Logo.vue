@@ -22,21 +22,33 @@
   -webkit-tap-highlight-color: transparent;
 
   h1 {
-    font-size: 40px;
+    font-size: 30px;
     margin: 0 0 5px 20px;
     padding: 0;
+
+    @media (min-width: 1024px) {
+      font-size: 40px;
+    }
   }
 
   h2 {
-    font-size: 25px;
+    font-size: 17px;
     margin: 0 0 0 20px;
     padding: 0;
+
+    @media (min-width: 1024px) {
+      font-size: 25px;
+    }
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 15px;
     margin: 0 0 0 20px;
     padding: 0;
+
+    @media (min-width: 1024px) {
+      font-size: 20px;
+    }
   }
 
   &:hover {

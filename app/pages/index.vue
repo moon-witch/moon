@@ -110,7 +110,7 @@ onMounted(() => {
     <section class="contact">
       <ContactButton/>
     </section>
-    <section>
+    <section class="button-container">
       <TransitionGroup appear :key="transitionKey" name="fade" tag="div" class="route-buttons" mode="out-in">
         <div key="projects">
           <h4>Projects</h4>
@@ -170,7 +170,11 @@ onMounted(() => {
     }
 
     .text {
-      font-size: 2rem;
+      font-size: 1.5rem;
+
+      @media (min-width: 1024px) {
+        font-size: 2rem;
+      }
     }
   }
 
@@ -188,22 +192,40 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 6rem;
+    margin-top: 2rem;
     gap: 1rem;
 
+    @media (min-width: 1024px) {
+      margin-top: 6rem;
+    }
+
     h4 {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       margin-bottom: 1rem;
       text-align: center;
+      font-family: 'Cinzel', serif;
+
+      @media (min-width: 1024px) {
+        font-size: 1.5rem;
+      }
     }
 
     .animated-button {
       border: 1px solid $active;
-      width: 250px;
-      height: 250px;
+      width: 150px;
+      height: 150px;
+      filter: none;
+      transition: filter 0.2s ease, border 0.2s ease;
+
+      @media (min-width: 1024px) {
+        filter: blur(2px);
+        width: 250px;
+        height: 250px;
+      }
 
       &:hover {
         border: 1px solid $secondary;
+        filter: none;
       }
     }
   }

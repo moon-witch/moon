@@ -47,16 +47,18 @@ const open = computed(() => {
 <template>
   <main class="container">
     <nav class="top-line-mobile">
-      <Logo class="moonwitch-logo" @click="closeMenu"/>
-      <MobileNav class="burger"/>
+      <div clasS="visuals">
+        <Logo class="moonwitch-logo" @click="closeMenu"/>
+        <MobileNav class="burger"/>
+      </div>
       <MobileMenu class="burger-menu"/>
       <div v-if="open" @click="closeMenu" class="overlay"></div>
     </nav>
     <nav class="top-line-desktop">
       <Logo class="moonwitch-logo" />
       <LangSwitcher class="lang-switcher"/>
-      <div style="position: absolute; top: 0; left: 0; width: 100dvw; height: 100dvw; z-index: 1; overflow: hidden; opacity: 0.05;">
-        <GeometryAnimation :speed="0.2"/>
+      <div style="position: absolute; top: 0; left: 0; width: 100dvw; height: 100dvw; z-index: 1; overflow: hidden; opacity: 0.2; filter: blur(10px);">
+        <GeometryAnimation :speed="0.1"/>
       </div>
     </nav>
     <div class="content">
@@ -68,7 +70,12 @@ const open = computed(() => {
 
 <style scoped lang="scss">
 .top-line-mobile {
-  height: 170px;
+  height: 100px;
+  width: 100dvw;
+
+  @media (min-width: 1024px) {
+    height: 170px;
+  }
 
   .overlay {
     position: absolute;
@@ -81,9 +88,7 @@ const open = computed(() => {
   }
 
   .moonwitch-logo {
-    position: absolute;
-    left: 150px;
-    transform: translateX(-50%);
+    margin-top: .5rem;
   }
 
   .burger {
