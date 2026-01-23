@@ -180,7 +180,7 @@ const open = computed(() => {
   position: relative;
 
   @media (max-width: 1023px) {
-    height: calc(100dvh - 170px);
+    height: calc(100dvh - 100px);
   }
 }
 
